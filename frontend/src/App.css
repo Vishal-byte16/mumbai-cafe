@@ -1,0 +1,261 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #ffcc80; /* Light orange background */
+  color: #333; /* Darker text for better contrast */
+}
+
+/* Navbar Styling */
+.navbar {
+  background-color: #e98a1e; /* Orange background for navbar */
+  padding: 10px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar ul li {
+  margin: 0 20px;
+}
+
+.navbar ul li a {
+  color: #ece3d9;
+  text-decoration: none;
+  font-size: 1.2em;
+  padding: 10px;
+}
+
+.navbar ul li a:hover {
+  background-color: #f1f0f0;
+  border-radius: 5px;
+}
+
+/* Hero Section Styling */
+.App {
+  text-align: center;
+  margin-top: 60px; /* To avoid content overlap with navbar */
+}
+
+.App-header {
+  position: relative;
+  color: #e2764b;
+  padding: 100px 20px;
+  margin-bottom: 50px;
+}
+
+/* Hero Section Styling */
+.App-header {
+  position: relative;
+  color: #b36363;
+  padding: 100px 20px;
+  margin-bottom: 50px;
+  background-color: #ffa346; /* Orange background for the strip */
+ 
+  background-size: cover;
+  background-position: center center;
+  background-blend-mode: multiply;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+.hero-strip {
+  padding: 80px 60px;
+  background: rgba(255, 255, 255, 0.7); /* Semi-transparent background for readability */
+  border-radius: 10px; /* Rounded edges */
+  max-width: 90%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.hero-strip h1, .hero-strip p {
+  margin: 0;
+  color: #ff7b00; /* Darker text for better contrast */
+}
+
+.hero-strip h1 {
+  font-size: 3.5em;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.hero-strip p {
+  font-size: 1.3em;
+  margin-top: 10px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Menu Section */
+.menu {
+  background-color: #fff;
+  padding: 30px 20px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.menu-cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap; /* Make the cards responsive */
+}
+
+.menu-card {
+  background-color: white;
+  width: 30%;
+  padding: 20px;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.menu-card img {
+  width: 100%;
+  height: 200px; /* Set a fixed height for consistency */
+  object-fit: cover; /* Ensure the image covers the space without distortion */
+  border-radius: 8px;
+  max-height: 250px;
+}
+
+.menu-card h3 {
+  font-size: 1.8em;
+  margin-top: 15px;
+  color: #333;
+}
+
+.menu-card p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* About Us Section */
+.about {
+  background-color: #fff;
+  padding: 30px 20px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.about h2 {
+  font-size: 2.5em;
+  color: #ff6347;
+  margin-bottom: 20px;
+}
+
+.about p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #555;
+}
+
+/* Review, Special Offers, and Contact Sections */
+.reviews, .special-offers, .contact, .social-media {
+  background-color: #fff;
+  padding: 30px 20px;
+  margin: 20px auto;
+  width: 80%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.review-card, .offer {
+  background-color: white;
+  padding: 20px;
+  margin: 10px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review-card p {
+  font-size: 1.1em;
+  color: #555;
+}
+
+.review-card span {
+  font-size: 1em;
+  color: #ff6347;
+  font-weight: bold;
+}
+
+.offer h3 {
+  font-size: 2em;
+  color: #ff6347;
+}
+
+.offer p {
+  font-size: 1.2em;
+  color: #555;
+}
+
+/* Social Media Icons */
+.social-icons a {
+  margin: 0 20px;
+}
+
+.social-icons img {
+  width: 40px;
+  height: 40px;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: white;
+  padding: 15px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  font-size: 1em;
+}
+
+/* Responsive Design for Smaller Screens */
+@media screen and (max-width: 768px) {
+  .menu-cards {
+    flex-direction: column; /* Stack menu cards vertically */
+    align-items: center;
+  }
+
+  .menu-card {
+    width: 80%; /* Take up more width on smaller screens */
+  }
+
+  .App-header h1 {
+    font-size: 2.5em; /* Adjust header size on smaller screens */
+  }
+
+  .App-header p {
+    font-size: 1.1em; /* Adjust text size */
+  }
+
+  .navbar ul {
+    flex-direction: column; /* Stack navbar items vertically */
+  }
+
+  .navbar ul li {
+    margin: 10px 0; /* Add space between navbar items */
+  }
+}
