@@ -4,7 +4,7 @@ import './App.css';
 import axios from 'axios'; // Import axios to fetch data
 
 function App() {
-  const [data, setData] = useState(''); // For server response
+  // Removed unused 'data' state variable
   const [menu, setMenu] = useState([]); // For menu items
 
   useEffect(() => {
@@ -16,10 +16,13 @@ function App() {
         }
         return response.text();
       })
-      .then(data => setData(data)) // Store response in state
+      .then(data => {
+        // You can still handle the 'data' here if needed, but no longer using a state for it
+        console.log(data); // For debugging purposes or use it somewhere in the app
+      })
       .catch(error => {
         console.error('Error fetching data:', error);
-        setData('Sorry, we are having trouble fetching the data.');
+        // You can log an error message or handle it as required
       });
 
     // Fetch menu items from backend API
