@@ -1,4 +1,6 @@
-/* General Reset */
+/* =======================
+   General Reset
+======================= */
 * {
   margin: 0;
   padding: 0;
@@ -6,15 +8,17 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
-  background-color: #ffcc80; /* Light orange background */
-  color: #333; /* Darker text for better contrast */
+  font-family: "Poppins", Arial, sans-serif;
+  background-color: #ffcc80;
+  color: #333;
 }
 
-/* Navbar Styling */
+/* =======================
+   Navbar Styling
+======================= */
 .navbar {
-  background-color: #e98a1e; /* Orange background for navbar */
-  padding: 10px;
+  background-color: #e98a1e;
+  padding: 12px;
   position: fixed;
   width: 100%;
   top: 0;
@@ -22,9 +26,7 @@ body {
 }
 
 .navbar ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+  list-style: none;
   display: flex;
   justify-content: center;
 }
@@ -34,228 +36,238 @@ body {
 }
 
 .navbar ul li a {
-  color: #ece3d9;
+  color: #fff3e0;
   text-decoration: none;
-  font-size: 1.2em;
-  padding: 10px;
+  font-size: 1.1em;
+  padding: 8px 14px;
+  transition: all 0.3s ease;
 }
 
 .navbar ul li a:hover {
-  background-color: #f1f0f0;
-  border-radius: 5px;
+  background-color: #fff;
+  color: #e98a1e;
+  border-radius: 6px;
 }
 
-/* Hero Section Styling */
+/* =======================
+   App Container
+======================= */
 .App {
   text-align: center;
-  margin-top: 60px; /* To avoid content overlap with navbar */
+  margin-top: 80px;
 }
 
+/* =======================
+   Hero Section
+======================= */
 .App-header {
-  position: relative;
-  color: #e2764b;
+  background-color: #ffa346;
   padding: 100px 20px;
-  margin-bottom: 50px;
-}
-
-/* Hero Section Styling */
-.App-header {
-  position: relative;
-  color: #b36363;
-  padding: 100px 20px;
-  margin-bottom: 50px;
-  background-color: #ffa346; /* Orange background for the strip */
- 
-  background-size: cover;
-  background-position: center center;
-  background-blend-mode: multiply;
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+  margin: 20px auto 50px;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
 }
 
 .hero-strip {
-  padding: 80px 60px;
-  background: rgba(255, 255, 255, 0.7); /* Semi-transparent background for readability */
-  border-radius: 10px; /* Rounded edges */
+  background: rgba(255, 255, 255, 0.75);
+  padding: 70px 50px;
+  border-radius: 12px;
   max-width: 90%;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.hero-strip h1, .hero-strip p {
-  margin: 0;
-  color: #ff7b00; /* Darker text for better contrast */
+  margin: auto;
 }
 
 .hero-strip h1 {
-  font-size: 3.5em;
-  font-weight: bold;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  font-size: 3.4em;
+  color: #ff7b00;
+  font-weight: 700;
 }
 
 .hero-strip p {
   font-size: 1.3em;
-  margin-top: 10px;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  margin-top: 12px;
+  color: #444;
 }
 
-/* Menu Section */
+/* =======================
+   Menu Section
+======================= */
 .menu {
   background-color: #fff;
-  padding: 30px 20px;
-  margin: 20px auto;
+  padding: 40px 25px;
+  margin: 30px auto;
   width: 80%;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
 }
 
 .menu-cards {
   display: flex;
+  gap: 25px;
   justify-content: space-between;
-  gap: 20px;
-  flex-wrap: wrap; /* Make the cards responsive */
+  flex-wrap: wrap;
 }
 
 .menu-card {
-  background-color: white;
   width: 30%;
-  padding: 20px;
-  text-align: center;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  background: #ffffff;
+  padding: 22px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
 }
 
 .menu-card img {
   width: 100%;
-  height: 200px; /* Set a fixed height for consistency */
-  object-fit: cover; /* Ensure the image covers the space without distortion */
+  height: 210px;
+  object-fit: cover;
   border-radius: 8px;
-  max-height: 250px;
 }
 
 .menu-card h3 {
-  font-size: 1.8em;
   margin-top: 15px;
-  color: #333;
+  font-size: 1.7em;
 }
 
 .menu-card p {
-  font-size: 1.2em;
-  color: #555;
-}
-
-/* About Us Section */
-.about {
-  background-color: #fff;
-  padding: 30px 20px;
-  margin: 20px auto;
-  width: 80%;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.about h2 {
-  font-size: 2.5em;
-  color: #ff6347;
-  margin-bottom: 20px;
-}
-
-.about p {
-  font-size: 1.2em;
-  line-height: 1.6;
-  color: #555;
-}
-
-/* Review, Special Offers, and Contact Sections */
-.reviews, .special-offers, .contact, .social-media {
-  background-color: #fff;
-  padding: 30px 20px;
-  margin: 20px auto;
-  width: 80%;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.review-card, .offer {
-  background-color: white;
-  padding: 20px;
-  margin: 10px 0;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.review-card p {
   font-size: 1.1em;
   color: #555;
 }
 
-.review-card span {
-  font-size: 1em;
-  color: #ff6347;
-  font-weight: bold;
+/* =======================
+   About Us (PROFESSIONAL)
+======================= */
+.about-us {
+  background-color: #fffaf5;
+  padding: 50px 35px;
+  margin: 40px auto;
+  width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
 }
 
-.offer h3 {
-  font-size: 2em;
-  color: #ff6347;
+.about-title {
+  font-size: 2.8em;
+  color: #ff6b35;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
-.offer p {
+.about-intro {
+  text-align: center;
   font-size: 1.2em;
+  line-height: 1.9;
+  margin-bottom: 40px;
+  color: #444;
+}
+
+.about-section {
+  margin-bottom: 30px;
+}
+
+.about-section h3 {
+  font-size: 1.6em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.about-section p {
+  font-size: 1.1em;
+  line-height: 1.8;
   color: #555;
 }
 
-/* Social Media Icons */
+.about-ending {
+  text-align: center;
+  font-size: 1.3em;
+  margin-top: 35px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* =======================
+   Reviews / Offers / Contact
+======================= */
+.reviews,
+.special-offers,
+.contact,
+.social-media {
+  background-color: #fff;
+  padding: 40px 25px;
+  margin: 30px auto;
+  width: 80%;
+  border-radius: 10px;
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.1);
+}
+
+.review-card,
+.offer {
+  background: #fff;
+  padding: 22px;
+  margin: 15px 0;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.review-card span {
+  color: #ff6347;
+  font-weight: 600;
+}
+
+/* =======================
+   Social Media
+======================= */
 .social-icons a {
-  margin: 0 20px;
+  margin: 0 18px;
 }
 
 .social-icons img {
-  width: 40px;
-  height: 40px;
+  width: 42px;
+  height: 42px;
 }
 
-/* Footer */
+/* =======================
+   Footer
+======================= */
 footer {
   background-color: #333;
   color: white;
-  padding: 15px 0;
+  padding: 14px 0;
+  text-align: center;
   position: fixed;
   bottom: 0;
   width: 100%;
-  text-align: center;
 }
 
-footer p {
-  margin: 0;
-  font-size: 1em;
-}
-
-/* Responsive Design for Smaller Screens */
-@media screen and (max-width: 768px) {
+/* =======================
+   Responsive Design
+======================= */
+@media (max-width: 768px) {
   .menu-cards {
-    flex-direction: column; /* Stack menu cards vertically */
+    flex-direction: column;
     align-items: center;
   }
 
   .menu-card {
-    width: 80%; /* Take up more width on smaller screens */
+    width: 85%;
   }
 
-  .App-header h1 {
-    font-size: 2.5em; /* Adjust header size on smaller screens */
+  .hero-strip h1 {
+    font-size: 2.4em;
   }
 
-  .App-header p {
-    font-size: 1.1em; /* Adjust text size */
+  .hero-strip p {
+    font-size: 1.1em;
   }
 
   .navbar ul {
-    flex-direction: column; /* Stack navbar items vertically */
+    flex-direction: column;
   }
 
   .navbar ul li {
-    margin: 10px 0; /* Add space between navbar items */
+    margin: 8px 0;
+  }
+
+  .about-us {
+    width: 90%;
+    padding: 35px 20px;
   }
 }

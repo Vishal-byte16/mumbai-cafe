@@ -1,93 +1,69 @@
-import React, { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';  // For animations
-import './App.css';
-import axios from 'axios'; // Import axios to fetch data
+import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+import axios from "axios";
+import "./App.css";
 
 function App() {
-  // Removed unused 'data' state variable
-  const [menu, setMenu] = useState([]); // For menu items
+  const [menu, setMenu] = useState([]);
 
   useEffect(() => {
-    // Fetch data from the backend server (Node.js)
-    fetch('http://localhost:5000')
-      .then(response => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
-        return response.text();
-      })
-      .then(data => {
-        // You can still handle the 'data' here if needed, but no longer using a state for it
-        console.log(data); // For debugging purposes or use it somewhere in the app
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-        // You can log an error message or handle it as required
-      });
+    fetch("http://localhost:5000")
+      .then(res => res.text())
+      .then(data => console.log(data))
+      .catch(err => console.error(err));
 
-    // Fetch menu items from backend API
-    axios.get('http://localhost:5000/api/menu')
-      .then(response => setMenu(response.data))
-      .catch(error => {
-        console.error('Error fetching menu:', error);
-      });
+    axios
+      .get("http://localhost:5000/api/menu")
+      .then(res => setMenu(res.data))
+      .catch(err => console.error(err));
   }, []);
 
   return (
     <div className="App">
-      {/* Navbar */}
+      {/* NAVBAR */}
       <nav className="navbar">
         <ul>
-          <li><a href="#home" aria-label="Go to home section">Home</a></li>
-          <li><a href="#menu" aria-label="View our menu">Menu</a></li>
-          <li><a href="#about" aria-label="Learn more about us">About Us</a></li>
-          <li><a href="#contact" aria-label="Contact us">Contact</a></li>
-          <li><a href="#reviews" aria-label="Read customer reviews">Reviews</a></li>
-          <li><a href="#offers" aria-label="Check out our special offers">Special Offers</a></li>
-          <li><a href="#social" aria-label="Follow us on social media">Follow Us</a></li>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#offers">Offers</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
 
-      {/* Hero Section */}
+      {/* HERO */}
       <header className="App-header" id="home">
         <div className="hero-strip">
-          <motion.h1 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
+          <motion.h1
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
             Welcome to Mumbai Cafe
           </motion.h1>
 
-          {/* Updated tagline */}
-          <motion.p 
-            initial={{ opacity: 0 }} 
-            animate={{ opacity: 1 }} 
-            transition={{ duration: 1, delay: 0.5 }}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.4 }}
           >
-            A taste of Mumbai, A Taste of Greatness
+            A Taste of Mumbai, A Taste of Greatness
           </motion.p>
         </div>
       </header>
 
-      {/* Menu Section */}
-      <motion.section 
-        className="menu" 
-        id="menu" 
-        whileInView={{ opacity: 1 }}
-        initial={{ opacity: 0 }} 
-        transition={{ duration: 1 }}
-      >
+      {/* MENU */}
+      <motion.section className="menu" id="menu">
         <h2>Our Menu</h2>
         <div className="menu-cards">
-          {/* Dynamically render menu items */}
           {menu.length > 0 ? (
             menu.map((item, index) => (
-              <div key={index} className="menu-card">
+              <div className="menu-card" key={index}>
                 <img src={item.image} alt={item.name} />
                 <h3>{item.name}</h3>
                 <p>{item.description}</p>
-                <p>Price: {item.price}</p>
+                <p><strong>₹ {item.price}</strong></p>
               </div>
             ))
           ) : (
@@ -96,77 +72,115 @@ function App() {
         </div>
       </motion.section>
 
-      {/* About Us Section */}
-      <motion.section 
-        className="about" 
-        id="about" 
-        whileInView={{ opacity: 1 }}
-        initial={{ opacity: 0 }} 
-        transition={{ duration: 1 }}
-      >
-        <h2>About Us</h2>
-        <p>We serve authentic Mumbai street food with love and care. Our mission is to bring the vibrant flavors of Mumbai to your plate.</p>
+      {/* ABOUT US */}
+      <motion.section className="about-us" id="about">
+        <h2 className="about-title">About Us</h2>
+
+        <p className="about-intro">
+          🍽️ <strong>Authentic Mumbai Street Food, Made with Heart.</strong><br />
+          At Mumbai Cafe, we celebrate the true essence of Mumbai’s street food culture.
+          Every dish we serve carries the flavors, memories, and emotions of the city.
+          Our mission is to bring people together through food that feels familiar,
+          comforting, and deeply rooted in local tradition.
+        </p>
+
+        <div className="about-section">
+          <h3>📍 Our Story</h3>
+          <p>
+            Our journey began with a simple dream — to create a place where people
+            could experience the soul of Mumbai under one roof.
+            In a fast-moving city, we wanted to offer a space where time slows down,
+            conversations feel warmer, and every visit feels special.
+            What started as an idea soon became a café loved by locals and visitors alike.
+          </p>
+        </div>
+
+        <div className="about-section">
+          <h3>🌆 Inspired by Mumbai</h3>
+          <p>
+            Mumbai is not just our location — it is our identity.
+            From early morning chai breaks to late-night food cravings,
+            the city inspires everything we do.
+            Our café reflects Mumbai’s diversity, resilience, and energy,
+            welcoming people from all walks of life with open arms.
+          </p>
+        </div>
+
+        <div className="about-section">
+          <h3>🤝 More Than a Café</h3>
+          <p>
+            We believe a café should be more than just a place to eat.
+            It should be a space where friendships grow, ideas are shared,
+            and moments are created.
+            Whether you’re working, studying, meeting friends, or simply relaxing,
+            Mumbai Cafe is designed to feel like your second home.
+          </p>
+        </div>
+
+        <div className="about-section">
+          <h3>☕ Quality You Can Taste</h3>
+          <p>
+            Quality is at the heart of everything we serve.
+            From sourcing fresh ingredients to maintaining authentic flavors,
+            we ensure consistency in every bite and sip.
+            Our food and beverages are prepared with care, passion,
+            and attention to detail so that every visit is worth remembering.
+          </p>
+        </div>
+
+        <div className="about-section">
+          <h3>❤️ Community & Hospitality</h3>
+          <p>
+            What truly sets us apart is our commitment to people.
+            Our team believes in warm smiles, friendly conversations,
+            and genuine hospitality.
+            We strive to make every guest feel welcome, valued,
+            and eager to return for another memorable experience.
+          </p>
+        </div>
+
+        <p className="about-ending">
+          🌟 <em>Welcome in. Sit back. Sip slowly. You belong here.</em>
+        </p>
       </motion.section>
 
-      {/* Customer Reviews Section */}
-      <motion.section 
-        className="reviews" 
-        id="reviews" 
-        whileInView={{ opacity: 1 }}
-        initial={{ opacity: 0 }} 
-        transition={{ duration: 1 }}
-      >
+      {/* REVIEWS */}
+      <motion.section className="reviews" id="reviews">
         <h2>What Our Customers Say</h2>
         <div className="review-card">
-          <p>"The Vada Pav is the best I've ever had! Will definitely come back again."</p>
+          <p>"Best Vada Pav in town with authentic Mumbai taste!"</p>
           <span>- Sarah D.</span>
         </div>
         <div className="review-card">
-          <p>"Amazing chai and great ambiance. Highly recommend Mumbai Cafe!"</p>
+          <p>"Amazing chai, friendly staff, and a cozy vibe."</p>
           <span>- Ravi P.</span>
         </div>
       </motion.section>
 
-      {/* Special Offers Section */}
-      <motion.section 
-        className="special-offers" 
-        id="offers" 
-        whileInView={{ opacity: 1 }}
-        initial={{ opacity: 0 }} 
-        transition={{ duration: 1 }}
-      >
-        <h2>Special Offers</h2>
+      {/* OFFERS */}
+      <motion.section className="special-offers" id="offers">
+        <h2>🌟Special Offers</h2>
         <div className="offer">
-          <h3>20% Off on All Meals!</h3>
-          <p>Enjoy 20% off on your total bill when you visit us. Offer valid this week only.</p>
+          <h3>20% Off on All Meals</h3>
+          <p>Enjoy delicious meals at discounted prices this week.</p>
         </div>
         <div className="offer">
-          <h3>Buy 1 Get 1 Free on Chai</h3>
-          <p>Order one cup of chai and get another one free. Hurry up before the offer ends!</p>
+          <h3>Buy 1 Get 1 Free Chai</h3>
+          <p>Perfect excuse to bring a friend along.</p>
         </div>
       </motion.section>
 
-      {/* Contact Section */}
-      <motion.section 
-        className="contact" 
-        id="contact" 
-        whileInView={{ opacity: 1 }}
-        initial={{ opacity: 0 }} 
-        transition={{ duration: 1 }}
-      >
+      {/* CONTACT */}
+      <motion.section className="contact" id="contact">
         <h2>Contact Us</h2>
-        <p>Email: <a href="mailto:contact@mumbaicafe.com">contact@mumbaicafe.com</a></p>
-        <p>Phone: <a href="tel:+91999888777">+91 999 888 777</a></p>
+        <p>Email: contact@mumbaicafe.com</p>
+        <p>Phone: +91 999 888 777</p>
       </motion.section>
 
-      {/* Footer */}
-      <motion.footer
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-      >
-        <p>&copy; 2025 Mumbai Cafe. All rights reserved.</p>
-      </motion.footer>
+      {/* FOOTER */}
+      <footer>
+        <p>© 2025 Mumbai Cafe. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
